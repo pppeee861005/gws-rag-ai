@@ -1,0 +1,374 @@
+{
+  "entities": [
+    {
+      "id": "person_li_si",
+      "name": "李四",
+      "type": "PERSON",
+      "attributes": [
+        "會面參與者",
+        "發言者",
+        "meeting_participant",
+        "project_proposer",
+        "專案內容說明者",
+        "討論參與者",
+        "投資計畫提及者",
+        "speaker"
+      ],
+      "first_mention": "0"
+    },
+    {
+      "id": "person_wang_wu",
+      "name": "王五",
+      "type": "PERSON",
+      "attributes": [
+        "會面參與者",
+        "回應者",
+        "meeting_participant",
+        "potential_collaborator",
+        "對專案感興趣",
+        "討論參與者",
+        "興趣表達者"
+      ],
+      "first_mention": "29"
+    },
+    {
+      "id": "location_taipei_city",
+      "name": "台北市",
+      "type": "LOCATION",
+      "attributes": [
+        "市",
+        "city"
+      ],
+      "first_mention": "18"
+    },
+    {
+      "id": "location_taipei_xinyi",
+      "name": "台北市信義區",
+      "type": "LOCATION",
+      "attributes": [
+        "行政區",
+        "位於台北市",
+        "district",
+        "Taipei",
+        "區",
+        "別名:信義區",
+        "台北市內行政區"
+      ],
+      "first_mention": "18"
+    },
+    {
+      "id": "location_cafe_xinyi",
+      "name": "咖啡廳",
+      "type": "LOCATION",
+      "attributes": [
+        "會面地點",
+        "位於台北市信義區",
+        "位於信義區",
+        "venue",
+        "咖啡廳",
+        "別名:台北市信義區的咖啡廳"
+      ],
+      "first_mention": "25"
+    },
+    {
+      "id": "concept_ai_project_plan",
+      "name": "新的AI專案合作計劃",
+      "type": "CONCEPT",
+      "attributes": [
+        "討論主題",
+        "AI",
+        "合作",
+        "專案",
+        "計劃",
+        "project",
+        "collaboration",
+        "新",
+        "合作計劃",
+        "別名:AI專案合作計劃"
+      ],
+      "first_mention": "39"
+    },
+    {
+      "id": "object_5m_twd",
+      "name": "500萬台幣",
+      "type": "OBJECT",
+      "attributes": [
+        "投資金額",
+        "貨幣:TWD",
+        "金額:5000000",
+        "money",
+        "TWD",
+        "金額",
+        "預計投資額",
+        "預計投資金額",
+        "台幣"
+      ],
+      "first_mention": "62"
+    },
+    {
+      "id": "time_2023_01_15_15_00",
+      "name": "2023年1月15日下午3點",
+      "type": "CONCEPT",
+      "attributes": [
+        "timepoint"
+      ],
+      "first_mention": "3"
+    },
+    {
+      "id": "entity_1",
+      "name": "客戶",
+      "type": "PERSON",
+      "attributes": [],
+      "first_mention": 0
+    },
+    {
+      "id": "entity_2",
+      "name": "支票",
+      "type": "OBJECT",
+      "attributes": [
+        "創造信用"
+      ],
+      "first_mention": 5
+    },
+    {
+      "id": "entity_3",
+      "name": "信用",
+      "type": "CONCEPT",
+      "attributes": [
+        "銀行術語",
+        "儲蓄"
+      ],
+      "first_mention": 8
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_meeting_20230115_1500",
+      "type": "meeting",
+      "time": "2023-01-15T15:00:00+08:00",
+      "location": "台北市信義區的咖啡廳",
+      "participants": [
+        "person_li_si",
+        "person_wang_wu"
+      ],
+      "related_entities": [
+        "location_taipei_city",
+        "location_taipei_xinyi",
+        "location_cafe_xinyi"
+      ],
+      "actions_included": [
+        "act_meet_1"
+      ],
+      "sequence": 1
+    },
+    {
+      "id": "evt_discussion_ai_plan",
+      "type": "discussion",
+      "time": "2023-01-15T15:00:00+08:00",
+      "location": "台北市信義區的咖啡廳",
+      "participants": [
+        "person_li_si",
+        "person_wang_wu"
+      ],
+      "topic": "concept_ai_project_plan",
+      "actions_included": [
+        "act_discuss_1",
+        "act_discuss_2"
+      ],
+      "sequence": 2,
+      "caused_by": "evt_meeting_20230115_1500"
+    },
+    {
+      "id": "evt_investment_mentioned",
+      "type": "statement",
+      "time": "2023-01-15T15:00:00+08:00",
+      "speaker": "person_li_si",
+      "content_about": "object_5m_twd",
+      "location": "台北市信義區的咖啡廳",
+      "actions_included": [
+        "act_mention_1"
+      ],
+      "sequence": 3,
+      "caused_by": "evt_discussion_ai_plan"
+    },
+    {
+      "id": "evt_interest_expressed",
+      "type": "reaction",
+      "time": "2023-01-15T15:00:00+08:00",
+      "actor": "person_wang_wu",
+      "about": "concept_ai_project_plan",
+      "location": "台北市信義區的咖啡廳",
+      "actions_included": [
+        "act_express_1"
+      ],
+      "sequence": 4,
+      "caused_by": "evt_investment_mentioned"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_investment_commitment",
+      "text": "500萬台幣的投資是已承諾還是僅為預計金額？",
+      "status": "answered",
+      "answer": "僅為預計金額，尚未承諾。"
+    },
+    {
+      "id": "q_next_steps_timeline",
+      "text": "此AI專案合作計劃的下一步與預計時間表為何？",
+      "status": "needs_info",
+      "answer": "目前資料未提供下一步與預計時間表。"
+    },
+    {
+      "id": "q_project_lead",
+      "text": "誰將擔任此AI專案的主導或負責人？",
+      "status": "needs_info",
+      "answer": "尚未指明專案主導或負責人。"
+    }
+  ],
+  "roles": [
+    {
+      "entity_id": "person_li_si",
+      "role": "meeting_participant",
+      "context": "與王五在台北市信義區的咖啡廳會面",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_wang_wu",
+      "role": "meeting_participant",
+      "context": "與李四在台北市信義區的咖啡廳會面",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_li_si",
+      "role": "speaker",
+      "context": "提到專案的預計投資金額",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_li_si",
+      "role": "project_proposer",
+      "context": "提出AI專案合作計劃並提及預計投資金額",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_li_si",
+      "role": "project_presenter",
+      "context": "說明AI專案合作計劃與其預計投資金額",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_wang_wu",
+      "role": "interested_party",
+      "context": "對AI專案合作計劃表示很感興趣",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "concept_ai_project_plan",
+      "role": "discussion_topic",
+      "context": "會面中的主要討論主題",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "object_5m_twd",
+      "role": "planned_investment",
+      "context": "AI專案的預計投資金額",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_wang_wu",
+      "role": "potential_collaborator",
+      "context": "對AI專案合作計劃表示很感興趣",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_li_si",
+      "role": "討論參與者",
+      "context": "討論新的AI專案合作計劃",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "person_wang_wu",
+      "role": "討論參與者",
+      "context": "討論新的AI專案合作計劃",
+      "time_range": "2023-01-15T15:00:00+08:00"
+    }
+  ],
+  "states": [
+    {
+      "entity_id": "person_wang_wu",
+      "state_name": "interested",
+      "detailed_description": "對討論中的AI專案合作計劃表示很感興趣",
+      "timestamp": "2023-01-15T15:00:00+08:00"
+    },
+    {
+      "entity_id": "concept_ai_project_plan",
+      "state_name": "investment_planned",
+      "detailed_description": "專案預計投資500萬台幣",
+      "timestamp": "2023-01-15T15:00:00+08:00"
+    }
+  ],
+  "actions": [
+    {
+      "id": "act_meet_1",
+      "verb": "見面",
+      "subject": "person_li_si",
+      "object": "person_wang_wu",
+      "timestamp": "2023-01-15T15:00:00+08:00",
+      "context": "在台北市信義區的咖啡廳"
+    },
+    {
+      "id": "act_discuss_1",
+      "verb": "討論",
+      "subject": "person_li_si",
+      "object": "concept_ai_project_plan",
+      "timestamp": "2023-01-15T15:00:00+08:00",
+      "context": "與王五討論新的AI專案合作計劃"
+    },
+    {
+      "id": "act_discuss_2",
+      "verb": "討論",
+      "subject": "person_wang_wu",
+      "object": "concept_ai_project_plan",
+      "timestamp": "2023-01-15T15:00:00+08:00",
+      "context": "與李四在咖啡廳討論"
+    },
+    {
+      "id": "act_mention_1",
+      "verb": "提到",
+      "subject": "person_li_si",
+      "object": "object_5m_twd",
+      "timestamp": "2023-01-15T15:00:00+08:00",
+      "context": "提到該AI專案的預計投資金額（500萬台幣）"
+    },
+    {
+      "id": "act_express_1",
+      "verb": "表示",
+      "subject": "person_wang_wu",
+      "object": "concept_ai_project_plan",
+      "timestamp": "2023-01-15T15:00:00+08:00",
+      "context": "表示很感興趣（指對所討論的專案）"
+    }
+  ],
+  "spatiotemporal_context": [
+    {
+      "location": "台北市信義區的咖啡廳",
+      "time": "2023-01-15T15:00:00+08:00",
+      "spatial_relations": [
+        "咖啡廳位於台北市信義區",
+        "咖啡廳位於信義區",
+        "信義區位於台北市"
+      ],
+      "temporal_relations": [
+        "見面發生於該時間",
+        "討論 發生於 見面期間",
+        "討論在見面期間進行",
+        "提到/表示 與 討論 同時",
+        "提到與表示發生於討論中",
+        "會面、討論、提到、表示於同一時間段發生",
+        "討論、提到與表示在會面期間發生",
+        "會面與討論在同一時間發生"
+      ]
+    }
+  ],
+  "actors": []
+}
