@@ -1,0 +1,29 @@
+[project]
+name = "gsw-learning-mvp"
+version = "0.1.0"
+description = "GSW 新型 RAG 框架學習 MVP"
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "openai>=1.12.0",
+    "chromadb>=0.4.24",
+    "pytest>=8.0.0",
+    "numpy>=1.26.0", # Added as a common dependency for numerical operations, if not already installed by other deps
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest-cov",
+    "black",
+    "isort",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"] # 告訴 setuptools 在 src 目錄中尋找包
+
+[tool.pytest.ini_options]
+pythonpath = ["src"] # 讓 pytest 知道如何找到 src 內的模組
+testpaths = ["tests"]
