@@ -1,0 +1,38 @@
+# GSW 學習 MVP 專案依賴包
+# 基礎測試框架
+pytest>=7.4.0
+hypothesis>=6.82.0
+
+# Google Gemini AI
+google-generativeai>=0.3.0
+
+# 環境變數管理
+python-dotenv>=1.0.0
+
+# OpenAI API (用於 embedding)
+openai>=1.3.0
+
+# 向量數據庫
+chromadb>=0.4.0
+
+# 數據處理
+numpy>=1.24.0
+pandas>=2.0.0
+
+# JSON 處理和驗證
+jsonschema>=4.17.0
+
+# 日期時間處理
+python-dateutil>=2.8.0
+
+# 文本處理
+nltk>=3.8.0
+
+# 路徑處理
+pathlib2>=2.3.0
+
+# 日誌處理
+loguru>=0.7.0
+
+# 中文環境支持
+chardet>=5.1.0
